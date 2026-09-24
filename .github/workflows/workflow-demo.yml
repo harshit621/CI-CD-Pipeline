@@ -13,3 +13,5 @@ jobs:
         run: echo "Running tests"
       - name: Step 4 - Finish
         run: echo "Workflow completed"
+      - name: myself
+        run: echo "systemctl"
