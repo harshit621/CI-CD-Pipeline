@@ -15,3 +15,18 @@ jobs:
         run: echo "Workflow completed"
       - name: myself
         run: echo "systemctl"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - Start
+        run: echo "Workflow started"
+      - name: Step 2 - Application
+        run: echo "Running application task"
+      - name: Step 3 - Testing
+        run: echo "Running tests"
+      - name: Step 4 - Finish
+        run: echo "Workflow completed"
+      - name: myself
+        run: echo "systemctl"
+
