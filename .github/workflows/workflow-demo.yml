@@ -1,5 +1,9 @@
 name: Workflow Demo
 on:
+  push:
+    branches:
+      - main
+      - feature/*
   workflow_dispatch:
 jobs:
   workflow-demo:
@@ -15,10 +19,6 @@ jobs:
         run: echo "Workflow completed"
       - name: myself
         run: echo "systemctl"
-
-
-
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -32,5 +32,16 @@ jobs:
         run: echo "Workflow completed"
       - name: myself
         run: echo "journalctl"
-
-        
+  secrets-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secret
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          if [ -n "$DEMO_SECRET" ]; then
+            echo "Secret is available."
+          else
+            echo "Secret is not configured."
+            exit 1
+          fi
