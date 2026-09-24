@@ -15,7 +15,10 @@ jobs:
         run: echo "Workflow completed"
       - name: myself
         run: echo "systemctl"
-jobs:
+
+
+
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -28,5 +31,6 @@ jobs:
       - name: Step 4 - Finish
         run: echo "Workflow completed"
       - name: myself
-        run: echo "systemctl"
+        run: echo "journalctl"
 
+        
