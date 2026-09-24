@@ -31,4 +31,21 @@ jobs:
         run: echo "Workflow completed"
       - name: myself
         run: echo "journalctl"
-  
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Run build
+        run: |
+          chmod +x build.sh
+          ./build.sh
+      - name: Show build files
+        run: |
+          echo "Build output:"
+          ls -la build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: session16-build
+          path: build/ 
